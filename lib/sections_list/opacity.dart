@@ -26,13 +26,22 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sections List number '),
+        title: const Text('Plugin example app'),
       ),
       body: Container(
         padding: const EdgeInsets.all(32.0),
         child: Column(
-          children: const <Widget>[
-            Text('Hello world!'),
+          children: <Widget>[
+            Opacity(
+              opacity: _visible
+                  ? 1.0
+                  : 0.3, // if _visible is ture set to 1.0 else to 0.3
+              child: const Text('I am visible'),
+            ),
+            ElevatedButton(
+              onPressed: _toggleVisble,
+              child: const Text('Toggle'),
+            ),
           ],
         ),
       ),
